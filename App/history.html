@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smurfs</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="/css/application_edit.css" rel="stylesheet">
+        <script src="/src/history.js"></script>
+    </head>
+    <body>
+        <div class="page_header">
+        <ul>
+            <div class="logo">
+                <h3><a href="info.html">Smurfs</a></h3>
+            </div>
+            <div class="navbar">
+                <ul class="nav navbar-nav navbar-right pull-right">
+                    <li class="dropdown">
+                        <a href="#" title="4 support tickets"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-globe"></i>
+                            <span class="count">4</span>
+                        </a>
+                        <ul id="support-menu" class="dropdown-menu support" role="menu">
+                            <li role="presentation">
+                                <a href="#" class="support-ticket">
+                                    <div class="picture">
+                                        <span class="label label-important"><i class="fa fa-bell-o"></i></span>
+                                    </div>
+                                    <div class="details">
+                                        Notification 1
+                                    </div>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="support-ticket">
+                                    <div class="picture">
+                                        <span class="label label-warning"><i class="fa fa-question-circle"></i></span>
+                                    </div>
+                                    <div class="details">
+                                        Notification 2
+                                    </div>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="support-ticket">
+                                    <div class="picture">
+                                        <span class="label label-success"><i class="fa fa-tag"></i></span>
+                                    </div>
+                                    <div class="details">
+                                        Notification 3
+                                    </div>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="support-ticket">
+                                    <div class="picture">
+                                        <span class="label label-info"><i class="fa fa-info-circle"></i></span>
+                                    </div>
+                                    <div class="details">
+                                        Notification 4
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#" class="text-align-center see-all">
+                                    See all tickets <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hidden-xs dropdown">
+                        <a href="#" title="Account" id="account"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </a>
+                        <ul id="account-menu" class="dropdown-menu account" role="menu">
+                            <li role="presentation" class="account-picture">
+                                <img src="img/2.png" alt="">
+                                Danh Trí Hiếu
+                            </li>
+                            <li role="presentation">
+                                <a href="form_account.html" class="link">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="hidden-xs"><a href="login.html"><i class="glyphicon glyphicon-off"></i></a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="page-title">History </h2>
+            </div>
+        </ul>
+        </div>
+        <nav id="mySidebar" class="sidebar">
+            <button id="btnSidebar" onclick="openNav(this)">☰</button>  
+            <a href="info.html">View information</a>
+            <a href="managersensor.html">Add/remove sensor</a>
+            <a href="history.html">View history</a>
+            <a href="control.html">Control device</a>
+            <a href="report.html">Make report</a>
+        </nav>
+        
+        <div id="content" class="content">
+            <div class="row">
+                <section class="in">
+                    <div class="inp">
+                        <label for="beginday">From:</label>
+                        <input type="date" id="beginday" name="beginday">
+                    </div>
+                    <div class="inp">
+                        <label for="endday">To:</label>
+                        <input type="date" id="endday" name="endday">
+                    </div>
+                    <div class="inp">
+                        <label for="farm">Choose a farm:</label>
+                        <select id="farm">
+                            <option value="tt1">Trang trại 1</option>
+                            <option value="tt2">Trang trại 2</option>
+                            <option value="tt3">Trang trại 3</option>
+                            <option value="tt4">Trang trại 4</option>
+                        </select>
+                    </div>
+                </section>
+                <br>
+                <section class="table">
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <div id="table_div"></div>
+                    <script>
+                        google.charts.load('current', {'packages': ['table']});
+                        google.charts.setOnLoadCallback(drawTable); 
+                    </script>   
+                </section>     
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                                                             
+                <section class="chart">
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <div id="curve_chart" style="margin-left: 40px; width: 500px; height: 300px;"></div>
+                    <script>
+                        google.charts.load('current', {'packages':['corechart']});
+                        google.charts.setOnLoadCallback(drawChart);
+                    </script>
+                </section>
+            </div>
+        </div>
+        
+        <script>
+        function openNav(obj) {
+            if (obj.innerHTML == "☰"){
+                document.getElementById("mySidebar").style.width = "230px";
+                document.getElementById("content").style.marginLeft = "230px";
+                obj.innerHTML = "☰ ";
+                return;
+            }
+            if (obj.innerHTML == "☰ "){
+                document.getElementById("mySidebar").style.width = obj.style.width;
+                document.getElementById("content").style.marginLeft = "40px";
+                obj.innerHTML = "☰";
+                return;
+            }      
+        }   
+        </script>
+    </body>
+</html>

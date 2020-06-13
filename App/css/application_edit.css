@@ -1,0 +1,306 @@
+/* ******** LOGO ******** */
+
+.page_header .logo {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    position: absolute;
+    left: 70px;
+    top: 0px;
+    z-index: 1;
+  }
+  
+@media (min-height: 940px) {
+    .logo {
+      position: fixed;
+    }
+}
+  
+.logo a {
+    color: #ffffff;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: normal;
+}
+  
+.logo strong {
+    color: #ffffff;
+}
+/* ******** sidebar ******** */
+.sidebar {
+    height: 100%;
+    width: 40px;
+    position: fixed;
+    z-index: 0;
+    top: 100px;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.705);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 40px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 40px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #928888;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar button{
+    position: absolute;
+    font-size: 20px;
+    width: 40px;
+    cursor: pointer;
+    background-color: rgba(17, 17, 17, 0.26);
+    color: #928888;
+    right: 0;
+    top : 0; 
+    border: none;
+    transition: 0.3s;
+  }
+
+  .openbtn button{
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgba(17, 17, 17, 0.26);
+    color: white;
+    width: min-content;
+    padding: 10px 15px;
+    border: none;
+    z-index: 1;
+    transition: margin-left .5s;
+    margin-top: 75px;
+    margin-left: 25px;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+/* ******** body ******** */
+body {
+    font-weight: 300;
+    padding-bottom: 100px;
+    background-color: #414e60 20%;
+    background-image: url(../img/background.svg), radial-gradient(farthest-side ellipse at 10% 0, #414e60 20%, #94a3b1);
+    background-image: url(../img/background.svg), -webkit-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
+    background-image: url(../img/background.svg), -moz-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
+    background-size: cover;
+    background-attachment: fixed, fixed;
+  }
+
+/* ******** content ******** */
+/* .wrap {
+    margin-left: 185px;
+  } */
+  
+  /*content except of header*/
+  .content {
+    position: fixed;
+    top: 130px;
+    margin-left: 40px;
+    /* -webkit-transition: margin-top 0.35s ease, opacity 0.2s;
+    -o-transition: margin-top 0.35s ease, opacity 0.2s;
+    transition: margin-top 0.35s ease, opacity 0.2s; */
+    max-width: none;
+    width: auto;
+    transition: 0.3s;
+  }
+  
+  .content.hiding {
+    opacity: 0;
+  }
+  
+  .content .content-footer {
+    position: absolute;
+    bottom: -85px;
+    color: #d2d2d2;
+  }
+
+  section {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  section.in {
+    font-size: 20px;
+    overflow: auto;
+    transition: 0.3s;
+    align-items: center;
+  }
+  .in div{
+      height: 30px;
+      margin-left: 10px;
+      padding-left: 20px;
+      display: inline-block;
+      transition: 0.3s;
+  }
+  .in div select{
+    height: 25px;
+    font-size: 17px;
+    transition: 0.3s;
+  }
+  .in div input{
+    height: 25px;
+    font-size: 17px;
+    transition: 0.3s;
+  }
+  section.table {
+    font-size: 20px;
+    overflow: auto;
+    transition: 0.3s;
+    align-content: center;
+    margin-left: 50px;
+  }
+  /* .table div{
+    font-size: 20px;
+    overflow: auto;
+    transition: 0.3s;
+    align-items: center;
+    margin: auto;
+  } */
+  .page_header{
+  height: 100px;
+  width: 100%;
+  top: 0;
+  /* margin: 0 0 0 0; */
+  position: fixed;
+  background-color: rgba(17, 17, 17, 0.705);
+}
+.page_header .page-title{
+    position: absolute;
+    left: 250px;
+    color: rgb(138, 228, 255);
+    font-style: inherit;
+    height: 100px;
+    width: 250px;
+    top : 25px;
+  
+}
+.page_header .navbar {
+  position: absolute;
+  right: 20px;
+  min-height: 50px;
+  padding: 10px 20px;
+  font-size: 20px;
+  height: 100px;
+  width: 200px;
+  border: 1px solid transparent;
+}
+
+/***********************************/
+/**          SUPPORT            **/
+/**********************************/
+.support {
+  background: rgba(51, 51, 51, 0.85);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 3px !important;
+  color: white;
+  z-index: 100;
+}
+
+.navbar .nav > li > .support:before {
+  border-bottom: none;
+}
+
+.navbar .nav > li > .support:after {
+  border-bottom-color: rgba(51, 51, 51, 0.85);
+}
+
+.navbar .nav > li > .support > li > a {
+  color: white;
+  padding: 5px 10px;
+}
+
+.navbar .nav > li > .support > li > a:hover, .navbar .nav > li > .support > li > a:focus {
+  background-color: #4e85bd;
+}
+
+.navbar .nav > li > .support .see-all {
+  padding: 5px 10px;
+}
+
+.support-ticket .picture {
+  float: left;
+  text-align: center;
+}
+
+.support-ticket .details {
+  margin-left: 30px;
+  font-size: 12px;
+}
+
+/***********************************/
+/**          ACCOUNT             **/
+/**********************************/
+.account {
+  width: 180px;
+  background: rgba(51, 51, 51, 0.85);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 3px !important;
+  color: white;
+  z-index: 100;
+}
+
+.navbar .nav > li > .account:before {
+  border-bottom: none;
+}
+
+.navbar .nav > li > .account:after {
+  border-bottom-color: rgba(51, 51, 51, 0.85);
+}
+
+.account > li > a {
+  color: white;
+}
+
+.account > li > a:hover, .account > li > a:focus {
+  background-color: #4e85bd;
+  color: white;
+}
+
+.account-picture {
+  padding: 5px 10px;
+  font-weight: normal;
+}
+
+.account-picture img {
+  width: 50px;
+  margin-right: 5px;
+}
+
+.account > li > a {
+  padding: 7px 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 13px;
+  text-align: left;
+  border-radius: 3px;
+  }
+  
