@@ -11,6 +11,7 @@ class MqttData{
         this.mqtt=require('mqtt');
         //Địa chỉ server Azure
         this.client = this.mqtt.connect('mqtt://23.97.58.41',{clientId:"mqtt-nhom2-BT"}/*{clientId:"mqtt01",username:"BKvm2",password:"Hcmut_CSE_2020"}*/);
+        //this.client = this.mqtt.connect('mqtt://23.97.58.41',{clientId:"mqtt01"}/*{clientId:"mqtt01",username:"BKvm2",password:"Hcmut_CSE_2020"}*/);
         this.client.on("connect",()=>{
             console.log("Connected to MQTT Broker");
         });
@@ -99,7 +100,7 @@ class MqttData{
     //Output: json của dữ liệu mới nhất của topic
     async get_latest(topic){
         var latest;
-        this.database.ref(topic+"/latest").once("value",(snapshot)=>{
+        await this.database.ref(topic+"/latest").once("value",(snapshot)=>{
             latest=snapshot.val();
         });
         return latest;
