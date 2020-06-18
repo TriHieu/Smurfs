@@ -40,7 +40,7 @@ class MqttData{
 
         this.firebase.initializeApp({
           credential: this.firebase.credential.cert(serviceAccount),
-          databaseURL: "https://database-349e2.firebaseio.com"
+          databaseURL: "https://smurf-280413.firebaseio.com"
         });
 
         this.database=this.firebase.database();
