@@ -6,7 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link href="/css/application_edit.css" rel="stylesheet">
-        
+        <script src="/js/info.js"></script>
     </head>
     <body>
         <div class="page_header">
@@ -111,7 +111,10 @@
         
         <div id="content" class="content">
             <div class="row">
-                
+                <script>
+                    getLatestTH(); // call latest temphumid api
+                    getLatestLight();
+                </script>
             </div>
         </div>
 
