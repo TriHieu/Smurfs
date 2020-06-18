@@ -4,7 +4,7 @@ const mqttData = require('./mqtt_data');
 const mqtt = new mqttData();
 mqtt.subscribe_data("Topic/TempHumi");
 mqtt.subscribe_data("Topic/Light");
-mqtt.subscribe_data("Topic/Sensor");
+mqtt.subscribe_data("Topic/Speaker");
 module.exports ={
     getLatestTH: (req,res) => {
         async function get(){
@@ -32,7 +32,14 @@ module.exports ={
     },
     publish: (req,res) => {
         async function get(){
-            res.send(await mqtt.publish_data("Topic/Sensor",req.body));
+            res.send(await mqtt.publish_data("Topic/Speaker",req.body));
+        }
+        get();
+    },
+    // test
+    getHistorySpeaker: (req,res) => {
+        async function get(){
+            res.send(await mqtt.get_history("Topic/Speaker"));
         }
         get();
     },

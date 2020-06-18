@@ -1,4 +1,3 @@
-
 /********************************************************/
 //Code hiện đang được hardcode để sử dụng dữ liệu từ MQTT của server Azure
 //Server ko có gửi dữ liệu về cho user subscribe theo interval đâu
@@ -11,30 +10,13 @@ class MqttData{
         this.mqtt=require('mqtt');
         //Địa chỉ server Azure
         this.client = this.mqtt.connect('mqtt://23.97.58.41',{clientId:"mqtt-nhom2-BT"}/*{clientId:"mqtt01",username:"BKvm2",password:"Hcmut_CSE_2020"}*/);
-        //this.client = this.mqtt.connect('mqtt://23.97.58.41',{clientId:"mqtt01"}/*{clientId:"mqtt01",username:"BKvm2",password:"Hcmut_CSE_2020"}*/);
         this.client.on("connect",()=>{
             console.log("Connected to MQTT Broker");
         });
         this.client.on("error",(error)=>{
             console.log("Can't connect:"+error);
         });
-        // require('firebase');
-        // this.firebase=require('firebase/app');
-        // require('firebase/auth');
-        // require('firebase/firestore');
-        //
-        // var firebaseConfig = {
-        //   apiKey: "AIzaSyDjMF8ZyKxIWQZ1Sn5uEoW60UTUoL66H3s",
-        //   authDomain: "database-349e2.firebaseapp.com",
-        //   databaseURL: "https://database-349e2.firebaseio.com",
-        //   projectId: "database-349e2",
-        //   storageBucket: "database-349e2.appspot.com",
-        //   messagingSenderId: "916186261978",
-        //   appId: "1:916186261978:web:f6f7c48aad1026a8dd38e3",
-        //   measurementId: "G-X06T0SGJ1S"
-        // };
-        //
-        // this.firebase.initializeApp(firebaseConfig);
+        
         this.firebase = require("firebase-admin");
         var serviceAccount = require("./key.json");
 
@@ -53,10 +35,9 @@ class MqttData{
                 }else if(topic.localeCompare("Topic/Light")==0){
                     this.database.ref("Topic/Light/latest").set(json_message);
                     this.database.ref("Topic/Light/history").push(json_message);
-                }else if(topic.localeCompare("Topic/Sensor")==0)
-                {
-                  this.database.ref("Topic/Sensor/latest").set(json_message);
-                  this.database.ref("Topic/Sensor/history").push(json_message);
+                }else if(topic.localeCompare("Topic/Speaker")==0){
+                  this.database.ref("Topic/Speaker/latest").set(json_message);
+                  this.database.ref("Topic/Speaker/history").push(json_message);
                 }
                 else{
                     throw "Subscribe wrong topic!";
