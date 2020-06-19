@@ -41,4 +41,8 @@ app.route('/apicall/light')
 app.route('/apicall/light/latest')
     .get(apiController.getLatestLight);
 
+app.route('/apicall/speaker')
+    .post(apiController.publish);
 
+app.route('/apicall/getspeaker')
+    .get(apiController.getLastestSpeaker);
