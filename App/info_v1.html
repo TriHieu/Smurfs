@@ -6,10 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link href="/css/application_edit.css" rel="stylesheet">
-        <script src="/src/history.js"></script>
-        <script src="/src/bundle.js"></script>
-        
-        <!-- <script src="/src/mqtt_data.js"></script> -->
+        <script src="/js/info.js"></script>
     </head>
     <body>
         <div class="page_header">
@@ -99,7 +96,7 @@
                 </ul>
             </div>
             <div>
-                <h2 class="page-title">History </h2>
+                <h2 class="page-title">Information </h2>
             </div>
         </ul>
         </div>
@@ -114,69 +111,20 @@
         
         <div id="content" class="content">
             <div class="row">
-                <section class="in">
-                    <div class="inp">
-                        <label for="beginday">From:</label>
-                        <input type="date" id="beginday" name="beginday">
-                    </div>
-                    <div class="inp">
-                        <label for="endday">To:</label>
-                        <input type="date" id="endday" name="endday">
-                    </div>
-                    <div class="inp">
-                        <label for="farm">Choose a farm:</label>
-                        <select id="farm">
-                            <option value="tt1">Trang trại 1</option>
-                            <option value="tt2">Trang trại 2</option>
-                            <option value="tt3">Trang trại 3</option>
-                            <option value="tt4">Trang trại 4</option>
-                        </select>
-                    </div>
-                </section>
-                <br>
-                <section class="table">
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                    <div id="table_div"></div>
-                    <script>
-                        google.charts.load('current', {'packages': ['table']});
-                        google.charts.setOnLoadCallback(drawTable); 
-                    </script>   
-                </section>     
-                <br>
-                <br>
-                <section class="test_data">
-                    <p id="demo"></p>
-                    <script>
-//                         data = mqttserver();
-//                         document.getElementById("demo").innerHTML = data;
-//                         function mqttserver(){
-//   mqttdata = require('MqttData');
-//   jsons1 = { "device_id":"d5_1", "value":["30","95"]};
-//   console.log(mqttdata.publish_data('Topic/TempHumi',jsons1)) ;
-//   return '123456789';
-// }
-// mqttdata = require('MqttData');
-
-// mqttdata = new MqttData();
-// jsons1 = { "device_id":"d5_1", "value":["30","95"]};
-  
-                    </script>   
-                    <script src="/src/app.js"></script>
-
-                </section> 
-                <br>
-                                                             
-                <section class="chart">
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                    <div id="curve_chart" style="margin-left: 40px; width: 500px; height: 300px;"></div>
-                    <script>
-                        google.charts.load('current', {'packages':['corechart']});
-                        google.charts.setOnLoadCallback(drawChart);
-                    </script>
-                </section>
+                <script>
+                    // while(true){
+                    //   postData('http://localhost:3000/apicall/sensor', {"device_id": "d1","values": ["20","25"]});
+                        // .then(data => {
+                        // console.log(data); // JSON data parsed by `response.json()` call
+                    // });
+                        // }
+                        getLatestTH(); // call latest temphumid api
+                    getLatestLight();
+                    
+                </script>
             </div>
         </div>
-        
+
         <script>
         function openNav(obj) {
             if (obj.innerHTML == "☰"){
@@ -191,7 +139,7 @@
                 obj.innerHTML = "☰";
                 return;
             }      
-        }   
+        }    
         </script>
     </body>
 </html>

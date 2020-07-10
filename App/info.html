@@ -157,7 +157,7 @@
                     },
                     redirect: 'follow', // manual, *follow, error
                     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                    body: JSON.stringify({ "device_id": "Speaker", "values": ["1", value] }) // body data type must match "Content-Type" header
+                    body: JSON.stringify([{ "device_id": "Speaker", "values": ["1", value] }]) // body data type must match "Content-Type" header
                 });
             }
         </script>
@@ -172,10 +172,10 @@
                             .then((res) => res.json())
                             .then(data => {
                                 console.log(data); // JSON object
-                                temp = data.values[0];
-                                humid = data.values[1];
-                                document.getElementById('Temperature').innerHTML = data.values[0];
-                                document.getElementById('Humid').innerHTML = data.values[1] + "%";
+                                temp = data["0"].values[0];
+                                humid = data["0"].values[1];
+                                document.getElementById('Temperature').innerHTML = data["0"].values[0];
+                                document.getElementById('Humid').innerHTML = data["0"].values[1] + "%";
                             })
                             .catch(err => {
                                 console.log(err);
@@ -185,8 +185,8 @@
                             .then((res) => res.json())
                             .then(data => {
                                 console.log(data); // JSON object
-                                light = data.values;
-                                document.getElementById('Light').innerHTML = data.values + "lux";
+                                light = data["0"].values;
+                                document.getElementById('Light').innerHTML = data["0"].values + "lux";
                             })
                             .catch(err => {
                                 console.log(err);
@@ -195,8 +195,8 @@
                             .then((res) => res.json())
                             .then(data => {
                                 console.log(data); // JSON object
-                                speak = data.values[1];
-                                document.getElementById('Speaker').innerHTML = data.values[1];
+                                speak = data["0"].values[1];
+                                document.getElementById('Speaker').innerHTML = data["0"].values[1];
                             })
                             .catch(err => {
                                 console.log(err);
@@ -215,7 +215,7 @@
                                 },
                                 redirect: 'follow', // manual, *follow, error
                                 referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                                body: JSON.stringify({ "device_id": "Speaker", "values": ["1", "3000"] }) // body data type must match "Content-Type" header
+                                body: JSON.stringify([{ "device_id": "Speaker", "values": ["1", "3000"] }]) // body data type must match "Content-Type" header
                             });
                         }
                     }

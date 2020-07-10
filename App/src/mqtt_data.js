@@ -9,7 +9,7 @@ class MqttData{
     constructor(){
         this.mqtt=require('mqtt');
         //Địa chỉ server Azure
-        this.client = this.mqtt.connect('mqtt://23.97.58.41',{clientId:"mqtt-nhom2-BT"}/*{clientId:"mqtt01",username:"BKvm2",password:"Hcmut_CSE_2020"}*/);
+        this.client = this.mqtt.connect('mqtt://52.187.125.59',{clientId:"mqtt01",username:"BKvm",password:"Hcmut_CSE_2020"});
         this.client.on("connect",()=>{
             console.log("Connected to MQTT Broker");
         });
