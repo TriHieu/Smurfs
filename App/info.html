@@ -1,246 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
     <title>Smurfs</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="/css/application_edit.css" rel="stylesheet">
-    <script src="/js/info.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="../plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 
-<body>
-    <div class="page_header">
-        <ul>
-            <div class="logo">
-                <h3><a href="info.html">Smurfs</a></h3>
-            </div>
-            <div class="navbar">
-                <ul class="nav navbar-nav navbar-right pull-right">
-                    <li class="dropdown">
-                        <a href="#" title="4 support tickets" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-globe"></i>
-                            <span class="count">4</span>
-                        </a>
-                        <ul id="support-menu" class="dropdown-menu support" role="menu">
-                            <li role="presentation">
-                                <a href="#" class="support-ticket">
-                                    <div class="picture">
-                                        <span class="label label-important"><i class="fa fa-bell-o"></i></span>
-                                    </div>
-                                    <div class="details">
-                                        Notification 1
-                                    </div>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#" class="support-ticket">
-                                    <div class="picture">
-                                        <span class="label label-warning"><i class="fa fa-question-circle"></i></span>
-                                    </div>
-                                    <div class="details">
-                                        Notification 2
-                                    </div>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#" class="support-ticket">
-                                    <div class="picture">
-                                        <span class="label label-success"><i class="fa fa-tag"></i></span>
-                                    </div>
-                                    <div class="details">
-                                        Notification 3
-                                    </div>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#" class="support-ticket">
-                                    <div class="picture">
-                                        <span class="label label-info"><i class="fa fa-info-circle"></i></span>
-                                    </div>
-                                    <div class="details">
-                                        Notification 4
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li role="presentation">
-                                <a href="#" class="text-align-center see-all">
-                                    See all tickets <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="/" style="color: black;">Smurfs
+                    </a>
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
-                    <li class="hidden-xs dropdown">
-                        <a href="#" title="Account" id="account" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </a>
-                        <ul id="account-menu" class="dropdown-menu account" role="menu">
-                            <li role="presentation" class="account-picture">
-                                <img src="img/2.png" alt="">
-                                Danh Trí Hiếu
-                            </li>
-                            <li role="presentation">
-                                <a href="form_account.html" class="link">
-                                    <i class="fa fa-user"></i>
-                                    Profile
-                                </a>
-                            </li>
-
-                        </ul>
+                    <li>
+                        <a class="profile-pic" href="#"> <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Username</b></a>
                     </li>
-                    <li class="hidden-xs"><a href="login.html"><i class="glyphicon glyphicon-off"></i></a></li>
                 </ul>
             </div>
-            <div>
-                <h2 class="page-title">Information </h2>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile</a>
+                    </li>
+                    <li>
+                        <a href="/history" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>History</a>
+                    </li>
+
+                </ul>
             </div>
-        </ul>
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!--row -->
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <div class="data">
+                                <p>Light: </p>
+                                <label id="Light"></label>
+                            </div>
+                            <div class="data">
+                                <p>Temperature: </p>
+                                <label id="Temperature"></label>
+                                <p>Humid: </p>
+                                <label id="Humid"></label>
+                            </div>
+                        </div>
+                        <div class="white-box">
+                            <button onclick="drawChartTH()" class="btn btn-danger m-l-20 waves-effect waves-light">Temperature & Humidity</button>
+                            <button onclick="drawChartLight()" class="btn btn-danger m-l-20 waves-effect waves-light">Light</button>
+                        </div>
+                        <div class="white-box">
+                            <h3 class="box-title">Chart</h3>
+                            <ul class="list-inline text-right" id="notes">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5 text-info"></i>Temperature</h5> </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5 text-inverse"></i>Humid</h5> </li>
+                            </ul>
+                            <div id="ct-visits" style="height: 405px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
     </div>
-    <nav id="mySidebar" class="sidebar">
-        <button id="btnSidebar" onclick="openNav(this)">☰</button>
-        <a href="info.html">View information</a>
-        <a href="managersensor.html">Add/remove sensor</a>
-        <a href="history.html">View history</a>
-        <a href="control.html">Control device</a>
-        <a href="report.html">Make report</a>
-    </nav>
-    <div id="content" class="content">
-        <div class="data">
-            <p>Temperature: </p>
-            <label id="Temperature"></label>
-        </div>
-        <br>
-        <div class="data">
-            <p>Humid: </p>
-            <label id="Humid"></label>
-        </div>
-        <br>
-        <div class="data">
-            <p>Light: </p>
-            <label id="Light"></label>
-        </div>
-        <br>
-        <div class="data">
-            <p>Speaker: </p>
-            <label id="Speaker"></label>
-        </div>
-        <br>
-        <div class="slidecontainer">
-            <input type="range" min="0" max="5000" value="0" class="slider" id="myRange" onchange="fun(this.value)">
-            <input type="number" min="0" max="5000" class="inp_num" id="inp_number" onchange="fun(this.value)"> 
-        </div>
-        <script>
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("Speaker");
-            var inpnum = document.getElementById("inp_number");
-            output.innerHTML = slider.value;
-            slider.oninput = function () {
-                output.innerHTML = this.value;
-                inpnum.value = this.value;
-            }
-            inpnum.oninput = function () {
-                output.innerHTML = this.value;
-                slider.value = this.value;
-            }
-            async function fun(value) {
-                if (parseInt(value)>=5000) {value = "5000";}
-                await fetch("http://localhost:3000/apicall/speaker", {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                    body: JSON.stringify([{ "device_id": "Speaker", "values": ["1", value] }]) // body data type must match "Content-Type" header
-                });
-            }
-        </script>
-
-        <div class="row">
-            <script>
-                async function test() {
-                    while (true) {
-                        var temp, humid, light, speak = 0;
-
-                        await fetch("http://localhost:3000/apicall/temphumi/latest")
-                            .then((res) => res.json())
-                            .then(data => {
-                                console.log(data); // JSON object
-                                temp = data["0"].values[0];
-                                humid = data["0"].values[1];
-                                document.getElementById('Temperature').innerHTML = data["0"].values[0];
-                                document.getElementById('Humid').innerHTML = data["0"].values[1] + "%";
-                            })
-                            .catch(err => {
-                                console.log(err);
-                            })
-
-                        await fetch("http://localhost:3000/apicall/light/latest")
-                            .then((res) => res.json())
-                            .then(data => {
-                                console.log(data); // JSON object
-                                light = data["0"].values;
-                                document.getElementById('Light').innerHTML = data["0"].values + "lux";
-                            })
-                            .catch(err => {
-                                console.log(err);
-                            })
-                        await fetch("http://localhost:3000/apicall/getspeaker")
-                            .then((res) => res.json())
-                            .then(data => {
-                                console.log(data); // JSON object
-                                speak = data["0"].values[1];
-                                document.getElementById('Speaker').innerHTML = data["0"].values[1];
-                            })
-                            .catch(err => {
-                                console.log(err);
-                            })
-
-                        val = document.getElementById("myRange").value;
-                        if (parseInt(speak) <= 1000 && parseInt(temp) >= 70) {
-                            await fetch("http://localhost:3000/apicall/speaker", {
-                                method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                                mode: 'cors', // no-cors, *cors, same-origin
-                                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                                credentials: 'same-origin', // include, *same-origin, omit
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                                },
-                                redirect: 'follow', // manual, *follow, error
-                                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                                body: JSON.stringify([{ "device_id": "Speaker", "values": ["1", "3000"] }]) // body data type must match "Content-Type" header
-                            });
-                        }
-                    }
-                }
-                test();
-            </script>
-        </div>
-    </div>
-
-    <script>
-        function openNav(obj) {
-            if (obj.innerHTML == "☰") {
-                document.getElementById("mySidebar").style.width = "230px";
-                document.getElementById("content").style.marginLeft = "230px";
-                obj.innerHTML = "☰ ";
-                return;
-            }
-            if (obj.innerHTML == "☰ ") {
-                document.getElementById("mySidebar").style.width = obj.style.width;
-                document.getElementById("content").style.marginLeft = "40px";
-                obj.innerHTML = "☰";
-                return;
-            }
-        }
-    </script>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <script src="/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 </body>
 
 </html>
