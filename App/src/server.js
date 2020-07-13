@@ -22,12 +22,12 @@ app.use(bodyParser.urlencoded({
 
 // test route infomation
 app.get("/",(req,res)=>{
-    filePath = path.join(__dirname,"..","info2.html");
+    filePath = path.join(__dirname,"..","info.html");
     res.sendFile(filePath);
 })
 
 app.get("/history",(req,res)=>{
-    filePath = path.join(__dirname,"..","history2.html");
+    filePath = path.join(__dirname,"..","history.html");
     res.sendFile(filePath);
 })
 
