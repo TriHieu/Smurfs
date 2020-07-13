@@ -35,7 +35,7 @@
     top: 100px;
     left: 0;
     background-color: rgba(17, 17, 17, 0.705);
-    overflow-x: hidden;
+    overflow-x: scroll;
     transition: 0.3s;
     padding-top: 40px;
   }
