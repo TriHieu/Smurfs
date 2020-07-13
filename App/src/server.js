@@ -22,7 +22,32 @@ app.use(bodyParser.urlencoded({
 
 // test route infomation
 app.get("/",(req,res)=>{
-    filePath = path.join(__dirname,"..","info.html");
+    filePath = path.join(__dirname,"..","info2.html");
+    res.sendFile(filePath);
+})
+
+app.get("/history",(req,res)=>{
+    filePath = path.join(__dirname,"..","history2.html");
+    res.sendFile(filePath);
+})
+
+app.get("/login",(req,res)=>{
+    filePath = path.join(__dirname,"..","login.html");
+    res.sendFile(filePath);
+})
+
+app.get("/manage",(req,res)=>{
+    filePath = path.join(__dirname,"..","managersensor.html");
+    res.sendFile(filePath);
+})
+
+app.get("/report",(req,res)=>{
+    filePath = path.join(__dirname,"..","report.html");
+    res.sendFile(filePath);
+})
+
+app.get("/control",(req,res)=>{
+    filePath = path.join(__dirname,"..","control.html");
     res.sendFile(filePath);
 })
 
