@@ -4,12 +4,14 @@
 //Tự publish data lên để server gửi về nhá :v
 //Nhóm chỉ publish và subscribe 2 topic là Topic/TempHumi và Topic/Light thôi nhá
 /********************************************************/
-
+const {firebase} = require('./firebaseConfig')
 class MqttData{
     constructor(){
         this.mqtt=require('mqtt');
         //Địa chỉ server Azure
+        
         this.client = this.mqtt.connect('mqtt://23.97.58.41',{clientId:"mqtt-nhom2-BT"}/*{clientId:"mqtt01",username:"BKvm2",password:"Hcmut_CSE_2020"}*/);
+        // this.client = this.mqtt.connect('mqtt://52.230.1.253',{clientId:"mqtt-nhom2-BT",username:"BKvm",password:"Hcmut_CSE_2020"});
         this.client.on("connect",()=>{
             console.log("Connected to MQTT Broker");
         });
@@ -17,23 +19,20 @@ class MqttData{
             console.log("Can't connect:"+error);
         });
         
-        this.firebase = require("firebase-admin");
-        var serviceAccount = require("./key.json");
-
-        this.firebase.initializeApp({
-          credential: this.firebase.credential.cert(serviceAccount),
-          databaseURL: "https://smurf-280413.firebaseio.com"
-        });
-
+        this.firebase = firebase;
+        
         this.database=this.firebase.database();
+        
         this.client.on("message",(topic,message,packet)=>{
                 var json_message = JSON.parse(message.toString());
+                // console.log(json_message[0].device_id);
                 json_message["time_stamp"] = new Date().getTime();
                 if (topic.localeCompare("Topic/TempHumi")==0) {
-                    this.database.ref("Topic/TempHumi/latest").set(json_message);
+                    this.database.ref("Topic/TempHumi/latest").child(json_message[0].device_id).set(json_message);
+                    //this.database.ref("Topic/TempHumi/latest").set(json_message);
                     this.database.ref("Topic/TempHumi/history").push(json_message);
                 }else if(topic.localeCompare("Topic/Light")==0){
-                    this.database.ref("Topic/Light/latest").set(json_message);
+                    this.database.ref("Topic/Light/latest").child(json_message[0].device_id).set(json_message);
                     this.database.ref("Topic/Light/history").push(json_message);
                 }else if(topic.localeCompare("Topic/Speaker")==0){
                   this.database.ref("Topic/Speaker/latest").set(json_message);
@@ -76,6 +75,19 @@ class MqttData{
         return history;
     }
 
+    async get_history_test(topic,dID=["Light"]){
+        let history=[];
+        await this.database.ref(topic+"/history").once("value",(snapshot)=>{
+            snapshot.forEach((childSnapshot)=>{
+                let childData=childSnapshot.val();
+                if(childSnapshot.val()[0]["device_id"]==dID.find(e=>e==childSnapshot.val()[0]["device_id"])){
+                    history.push(childData);
+                }
+            });
+        });
+        return history;
+    }
+
     //Lay du lieu moi nhat cua topic
     //Input:
     //topic: topic cần lấy dữ liệu
@@ -87,6 +99,31 @@ class MqttData{
         });
         return latest;
     }
+    async get_latest_test(topic){
+        let latest=[];
+        await this.database.ref(topic+"/latest").once("value",(snapshot)=>{
+            snapshot.forEach((childSnapshot)=>{
+                try {
+                    let childData=childSnapshot.val();
+                        latest.push(childData);
+                }
+                catch(err){
+                }
+            });
+        });
+        return latest;
+    }
+
+    async get_user(uid=[]){
+        let register=[];
+        await this.database.ref("Acc/"+uid).once("value",(snapshot)=>{
+            snapshot.forEach((childSnapshot)=>{
+                register.push(childSnapshot.val())
+            });
+        });
+        return register;
+    }
+
 }
 
 module.exports=MqttData;
