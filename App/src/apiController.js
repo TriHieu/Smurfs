@@ -5,10 +5,11 @@ const mqtt = new mqttData();
 mqtt.subscribe_data("Topic/TempHumi");
 mqtt.subscribe_data("Topic/Light");
 mqtt.subscribe_data("Topic/Speaker");
+
 module.exports ={
     getLatestTH: (req,res) => {
         async function get(){
-            res.send(await mqtt.get_latest("Topic/TempHumi"));
+            res.send(await mqtt.get_latest_test("Topic/TempHumi"));
         }
         get();
     },
@@ -20,7 +21,7 @@ module.exports ={
     },
     getLatestLight: (req,res) => {
         async function get(){
-            res.send(await mqtt.get_latest("Topic/Light"));
+            res.send(await mqtt.get_latest_test("Topic/Light"));
         }
         get();
     },
@@ -43,5 +44,18 @@ module.exports ={
         }
         get();
     },
+
+    getUser: (req,res) => {
+        async function get(){
+            res.send(await mqtt.get_user(req.params.uid))
+        }
+        get();
+    },
+    publishSpeaker: (req,res) => {
+        async function get(){
+            res.send(await mqtt.publish_data("Topic/Speaker",req.body));
+        }
+        get();
+    }
 }
 console.log(this.get);
