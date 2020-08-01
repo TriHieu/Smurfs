@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Signup and Login</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login_signup.css" rel="stylesheet">
+    <!-- <link href="./css/application.css" rel="stylesheet"> -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+
+  <!-- <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDfQpViD6pSaWyJkjqaxg6CS7o3s65_I68",
+      authDomain: "smurf-280413.firebaseapp.com",
+      databaseURL: "https://smurf-280413.firebaseio.com",
+      projectId: "smurf-280413",
+      storageBucket: "smurf-280413.appspot.com",
+      messagingSenderId: "108580976867",
+      appId: "1:108580976867:web:65ff8b55d58c4f9bf36dd6",
+      measurementId: "G-ZK96J8TY9Q"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script> -->
+</head>
+<body>
+  
+
+    <div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Sign Up</a></li>
+        <li class="tab"><a href="#login">Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+          <h1>Sign Up for Free</h1>
+          <form name="fr_signup" id="fr_signup">
+            <div class="top-row">
+              <div class="field-wrap">
+                <label>
+                  First Name<span class="req">*</span>
+                </label>
+                <input id="txt_fn" type="text" required autocomplete="off" />
+              </div>
+          
+              <div class="field-wrap">
+                <label>
+                  Last Name<span class="req">*</span>
+                </label>
+                <input id="txt_ln" type="text"required autocomplete="off"/>
+              </div>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Email Address<span class="req">*</span>
+              </label>
+              <input id="txt_em" name = "email" type="email"required autocomplete="off"/>
+            </div>
+            
+            <div class="field-wrap">
+              <label>
+                Set A Password<span class="req">*</span>
+              </label>
+              <input id="txt_pw" name = "password" type="password"required autocomplete="off"/>
+            </div>
+            
+            <input id="sb_txt" type="submit" class="button button-block">Get Started</input>
+            <!-- <button class="button button-block" onclick="signup()">Get started</button> -->
+          </form>
+        </div>
+        
+        <div id="login">   
+          <h1>Welcome Back!</h1>
+          <form name="fr_li" id="fr_li" >
+            <div class="field-wrap">
+              <label>
+                Email Address<span class="req">*</span>
+              </label>
+              <input id="em_li" name='email' type="email"required autocomplete="off"/>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Password<span class="req">*</span>
+              </label>
+              <input id="pw_li" name="pass" type="password"required autocomplete="off"/>
+            </div>
+            
+            <button id="sb_li" type="submit" class="button button-block">Log In</button>
+          
+          </form>
+
+        </div>
+        
+      </div><!-- tab-content -->
+
+      <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src = "js/login_signup.js"></script>
+  </div> <!-- /form -->
+</body>
+
+
+</html>
