@@ -24,6 +24,7 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/application_edit.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,9 +33,22 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <script>
+        async function loadPage(){
+            await fetch("/user")
+            .then(res=>res.json())
+            .then(data=>{
+                document.getElementById('username').innerHTML=data.name;
+                document.getElementById('hid').value = data.uid;
+                uid = data.uid;
+            })
+        }
+        loadPage();
+    </script>
 </head>
 
 <body class="fix-header">
+    <input type="hidden" id="hid">
     <!-- ============================================================== -->
     <!-- Preloader -->
     <!-- ============================================================== -->
@@ -63,7 +77,7 @@
                         <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                     </li>
                     <li>
-                        <a class="profile-pic" href="#"> <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Username</b></a>
+                        <a class="profile-pic" href="#"> <img src="/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"id='username'>Username</b></a>
                     </li>
                 </ul>
             </div>
@@ -85,7 +99,7 @@
                         <a href="/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile</a>
+                        <a href="/manage" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Manage</a>
                     </li>
                     <li>
                         <a href="/history" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>History</a>
@@ -108,7 +122,7 @@
                         <h4 class="page-title">Dashboard</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="/logout">Logout</a></li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -120,22 +134,33 @@
                 <!--row -->
                 <!-- /.row -->
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
+                    
                         <div class="white-box">
-                            <div class="data">
-                                <p>Light: </p>
-                                <label id="Light"></label>
+                            <h3 class="box-title">RECENT DATA</h3>
+                            <div id="data-display" style="display: flex;">
+                                <div class="light-data" id="lg">
+                                </div>
+                                <div class="light-data" id="th">
+                                </div>
                             </div>
-                            <div class="data">
-                                <p>Temperature: </p>
-                                <label id="Temperature"></label>
-                                <p>Humid: </p>
-                                <label id="Humid"></label>
+                        </div>
+                        
+                        <div class="white-box">
+                            <h3 class="box-title">SPEAKER</h3>
+                            <div>
+                                <label id="Speaker"></label>
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="5000" value="0" class="slider" id="myRange"
+                                    onchange="fun(this.value)">
+                                <input type="number" min="0" max="5000" class="inp_num" id="inp_number"
+                                    onchange="fun(this.value)">
                             </div>
                         </div>
                         <div class="white-box">
-                            <button onclick="drawChartTH()" class="btn btn-danger m-l-20 waves-effect waves-light">Temperature & Humidity</button>
-                            <button onclick="drawChartLight()" class="btn btn-danger m-l-20 waves-effect waves-light">Light</button>
+                            <button onclick="setTimeout(()=>getData('drawChartTH'),100)" class="btn btn-danger m-l-20 waves-effect waves-light">Temperature & Humidity</button>
+                            <button onclick="setTimeout(()=>getData('drawChartLight'),100)" class="btn btn-danger m-l-20 waves-effect waves-light">Light</button>
                         </div>
                         <div class="white-box">
                             <h3 class="box-title">Chart</h3>
