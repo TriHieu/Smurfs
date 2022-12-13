@@ -16,7 +16,7 @@
     "mqtt": "^4.1.0"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.1",
     "nodemon": "^2.0.4"
   }
